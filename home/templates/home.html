@@ -17,8 +17,8 @@
                         <p class="card-text">{{ product.description }}</p>
                     </div>
                     <div class="card-footer">
-                        <small class="text-muted">${{ product.price }}</small>
-                        <a href="#" class="btn btn-primary float-end">Añadir al carrito</a>
+                        <small class="text-muted">${{ product.price|floatformat:"0g" }}</small>
+                        <a href="{% url 'shoppingCart:add_to_cart' product.id %}" class="btn btn-primary float-end">Añadir al carrito</a>
                     </div>
                 </div>
             </div>

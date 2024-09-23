@@ -48,7 +48,10 @@ INSTALLED_APPS = [
     'shoppingCart',
     'user',
     'home',
+    'django.contrib.humanize',
 ]
+
+CART_SESSION_ID = 'shoppingCart'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
