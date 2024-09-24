@@ -127,6 +127,11 @@
 	<!-- Total del carrito -->
 	<p class="total-price">Total Price: ${{ total_price|floatformat:"0g" }}</p>
 
+	<!-- Enlace para finalizar la compra -->
+	{% if cart_items %}
+	<a href="{% url 'generate-pdf' %}" class="buy-now-button">Buy Now</a>
+	{% endif %}
+
 </body>
 
 </html>
