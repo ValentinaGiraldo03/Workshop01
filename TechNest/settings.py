@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'user',
     'home',
     'django.contrib.humanize',
+    'billing',
 ]
 
 CART_SESSION_ID = 'shoppingCart'
