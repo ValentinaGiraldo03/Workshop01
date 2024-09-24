@@ -23,12 +23,11 @@ def generate_file(user):
     p.drawString(100, 800, f'Factura de {user.first_name} {user.last_name}')
     p.drawString(100, 780, f'Cliente: {user.email}')
     p.drawString(100, 760, 'Productos:')
-    y = 740
+    y = 710
     for item in cart:
-        p.drawString(120, y, f'{item.product.name} x {item.quantity}..........{item.product.price * item.quantity}')
-        y -= 20
-
-    p.drawString(100, y, f'Total: {total_price}')
+        p.drawString(120, y, f'{item.product.name} x {item.quantity}..........{'${:,.2f}'.format(item.product.price*item.quantity)}')
+        y -= 50
+    p.drawString(100, y, f'Total: {'${:,.0f}'.format(total_price)}')
     p.showPage()
     p.save()
     buffer.seek(0)

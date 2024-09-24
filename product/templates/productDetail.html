@@ -10,7 +10,7 @@
         <div class="col-md-6 d-flex flex-column justify-content-center">
             <h2 class="display-5">{{ product.name }}</h2>
             <p class="lead">{{ product.description }}</p>
-            <h4 class="text-success">${{ product.price }}</h4>
+            <h4 class="text-success">${{ product.price|floatformat:"0g"  }}</h4>
             <a href="{% url 'shoppingCart:add_to_cart' product.id %}" class="btn btn-lg btn-outline-primary mt-4">Añadir al carrito</a>
         </div>
     </div>

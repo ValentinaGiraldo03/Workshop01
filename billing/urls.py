@@ -4,5 +4,5 @@ from . import views
 app_name = 'billing'
 
 urlpatterns = [
-    path('generate-pdf/', views.generate_pdf, name='generate_pdf'),
+    path('generar-pdf/', views.generar_pdf, name='generar_pdf'),
 ]
