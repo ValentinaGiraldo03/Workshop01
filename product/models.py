@@ -17,3 +17,7 @@ class Product(models.Model):
     category = models.CharField(max_length=20, choices=PRODUCT_TYPES)
     stock = models.IntegerField(validators=[MinValueValidator(0)])
     image = models.ImageField(null=True,upload_to='product/')
+
+    def __str__(self):
+        return self.name
+

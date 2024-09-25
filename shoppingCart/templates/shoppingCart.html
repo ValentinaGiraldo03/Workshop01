@@ -69,7 +69,6 @@
 			text-decoration: none;
 			font-weight: bold;
 			margin-bottom: 15px;
-			display: block;
 		}
 
 		.remove-link:hover {
@@ -98,6 +97,17 @@
 			text-align: center;
 			margin-top: 20px;
 		}
+
+		a { 
+			color: inherit; 
+			text-decoration: none;
+		} 
+
+		a:hover {
+    		color:#00A0C6; 
+    		text-decoration:none; 
+    		cursor:pointer;  
+		}
 	</style>
 </head>
 
@@ -107,18 +117,20 @@
 
 	<div class="product-list">
 		{% for item in cart_items %}
-		<div class="product-item">
-			<!-- Contenedor de la imagen -->
-			<div class="product-image-container">
-				<img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="product-image">
+		<a href="{% url 'productDetail' item.product_id %}">
+			<div class="product-item">
+				<!-- Contenedor de la imagen -->
+				<div class="product-image-container">
+					<img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="product-image">
+				</div>
+				<!-- Nombre del producto -->
+				<p class="product-name">{{ item.product.name }} ({{ item.quantity }})</p>
+				<!-- Precio del producto -->
+				<p class="product-price">Price: ${{ item.product.price|floatformat:"0g" }}</p>
+				<!-- Enlace para eliminar producto -->
+				<a href="{% url 'shoppingCart:remove_from_cart' item.id %}" class="remove-link">Remove</a>
 			</div>
-			<!-- Nombre del producto -->
-			<p class="product-name">{{ item.product.name }} ({{ item.quantity }})</p>
-			<!-- Precio del producto -->
-			<p class="product-price">Price: ${{ item.product.price|floatformat:"0g" }}</p>
-			<!-- Enlace para eliminar producto -->
-			<a href="{% url 'shoppingCart:remove_from_cart' item.id %}" class="remove-link">Remove</a>
-		</div>
+		</a>
 		{% empty %}
 		<p>Your cart is empty.</p>
 		{% endfor %}
@@ -126,6 +138,11 @@
 
 	<!-- Total del carrito -->
 	<p class="total-price">Total Price: ${{ total_price|floatformat:"0g" }}</p>
+
+	<!-- Enlace para finalizar la compra -->
+	{% if cart_items %}
+	<a href="{% url 'billing:generar_pdf' %}" class="buy-now-button">Buy Now</a>
+	{% endif %}
 
 </body>
 
