@@ -4,8 +4,6 @@
 ![_1fc97d11-63ca-4e45-84b5-e303076b3cc7-Photoroom](https://github.com/user-attachments/assets/094cadb9-5abc-4a29-8f86-4020f52a5e2e)
 
 
-
-
 # 2. Modelo verbal definitivo
 
 Technest's project consists of the expansion of the online technology store in the Colombian market, 
