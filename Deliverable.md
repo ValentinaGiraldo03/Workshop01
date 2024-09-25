@@ -17,5 +17,8 @@ implementing digital marketing strategies aimed at attracting customers througho
 # 3. Diagrama de clases
 
 
+![Clase UML (1)](https://github.com/user-attachments/assets/153a4209-5fea-49a3-b350-701a1b5701a0)
+
+
 
 # 4. Diagrama de arquitectura
