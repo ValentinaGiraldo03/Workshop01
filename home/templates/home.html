@@ -3,6 +3,12 @@
 {% block content %}
 
 <style>
+
+    .card-img-top {
+        height: 250px; 
+        object-fit: cover; 
+        width: 100%; 
+    }
     .custom-btn-add-product {
         background-color: #ff5f5f; 
         border: none;
@@ -44,7 +50,7 @@
                 </div>
             </div>
         {% empty %}
-            <p>No hay productos disponibles.</p>
+            <p>There aren't any product available</p>
         {% endfor %}
     </div>
     <div class="d-flex justify-content-center mb-5">

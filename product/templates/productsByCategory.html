@@ -2,6 +2,43 @@
 {% load static %}
 {% block content %}
 
+<style>
+    
+    .card-img-top {
+        height: 250px; 
+        object-fit: cover; 
+        width: 100%; 
+    }
+
+    .custom-btn-add-product {
+        background-color: #ff5f5f; 
+        border: none;
+        font-size: 1.2rem; 
+        font-weight: bold;
+        padding: 10px 25px; 
+        border-radius: 50px; 
+        color: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+        transition: all 0.3s ease; 
+    }
+
+    .custom-btn-add-product:hover {
+        background-color: #ff3c3c; 
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); 
+        transform: translateY(-2px); 
+    }
+
+
+    .card {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-body {
+        flex-grow: 1;
+    }
+</style>
+
 <div class="container mt-4">
     <div class="row">
         {% for product in products %}
@@ -18,15 +55,22 @@
                     <div class="card-footer">
                         <small class="text-muted">${{ product.price|floatformat:"0g" }}</small>
                         {% if not user.is_staff %}
-                        <a href="{% url 'shoppingCart:add_to_cart' product.id %}" class="btn btn-primary float-end">Add to cart</a>
+                            <a href="{% url 'shoppingCart:add_to_cart' product.id %}" class="btn btn-primary float-end">Add to cart</a>
                         {% endif %}
                     </div>
                 </div>
             </div>
         {% empty %}
-            <p>No hay productos disponibles.</p>
+            <p>There aren't any product available</p>
         {% endfor %}
     </div>
+
+    <!-- Botón para añadir productos, visible solo para personal (is_staff) -->
+    <div class="d-flex justify-content-center mb-5">
+        {% if user.is_staff %}
+            <a class="btn btn-danger custom-btn-add-product" href="{% url 'add_product' %}">Add Product</a>
+        {% endif %}
+    </div>    
 </div>
 
 {% endblock %}

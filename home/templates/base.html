@@ -125,6 +125,7 @@
                 <input class="form-control mr-sm-2 search-input" type="search" placeholder="Search products..." aria-label="Buscar" name = "filter" method = "get">
                 <button class="btn btn-outline-success my-2 my-sm-0 search-button" type="submit">Search</button>
             </form>
+            {% if not user.is_staff %}
             <li class="nav-item cart me-3">
                 <a class="nav-link1" href="{% url 'shoppingCart:view_cart'%}">
                   <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
@@ -132,6 +133,7 @@
                   </svg>
                 </a>
             </li>
+            {% endif %}
             {% if user.is_authenticated %}
     <li class="nav-item">
         <a class="nav-link1" href="{% url 'logout' %}">

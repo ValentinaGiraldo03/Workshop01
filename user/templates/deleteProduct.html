@@ -105,16 +105,16 @@
 
 <div class="content">
     <div class="form-container">
-        <h1>Eliminar Producto: {{ producto.name }}</h1>
-        <p>¿Estás seguro de que deseas eliminar este producto?</p>
+        <h1>Delete product: {{ producto.name }}</h1>
+        <p>Are you sure you want to remove this product?</p>
         <form method="POST">
             {% csrf_token %}
             <div class="d-grid">
-                <button type="submit" class="btn btn-danger">Eliminar Producto</button>
+                <button type="submit" class="btn btn-danger">Delete Product</button>
             </div>
         </form>
         <div class="d-grid mt-3">
-            <a href="{% url 'home' %}" class="btn btn-secondary">Volver al Inicio</a>
+            <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
         </div>
     </div>
 </div>

@@ -90,6 +90,12 @@
 			background-color: #0056b3;
 		}
 
+		
+		.buy-now-container {
+			text-align: center; 
+			margin-top: 20px;
+		}
+
 		.total-price {
 			font-size: 1.5rem;
 			font-weight: bold;
@@ -141,7 +147,9 @@
 
 	<!-- Enlace para finalizar la compra -->
 	{% if cart_items %}
-	<a href="{% url 'billing:generar_pdf' %}" class="buy-now-button">Buy Now</a>
+    <div class="buy-now-container">
+        <a href="{% url 'billing:generar_pdf' %}" class="buy-now-button">Buy Now</a>
+    </div>
 	{% endif %}
 
 </body>
