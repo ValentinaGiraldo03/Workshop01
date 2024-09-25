@@ -14,5 +14,39 @@
             <a href="{% url 'shoppingCart:add_to_cart' product.id %}" class="btn btn-lg btn-outline-primary mt-4">Añadir al carrito</a>
         </div>
     </div>
+    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Comments</h3>
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <!--Comentarios existentes-->
+        {% for review in reviews %}
+        <div class="flex items-center space-x-4 p-4 bg-white dark:bg-gray-800 rounded-lg">
+            <div class="flex flex-col w-full max-w-[320px] leading-1.5">
+                <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                    <span class="text-sm font-semibold text-gray-900 dark:text-white">{{ review.reviewingClient.username }}</span>
+                    <span class="text-sm font-normal text-gray-500 dark:text-gray-400">{{ review.date }}</span>
+                </div>
+                <p class="text-sm font-normal py-2 text-gray-900 dark:text-white">
+                    {{ review.comment | linebreaks }}
+                </p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!--Dejar nuevo-->
+    <br>
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        {% if sent_review %}
+        <div class="alert alert-success" role="alert">
+            Review submitted successfully!
+        </div>
+        {% else %}
+        <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Leave a comment</h4>
+        <form class = "text-center" method="post" style="margin-top: 1.3em;">
+            {{ review_form.as_p }}
+            {% csrf_token %}
+            <button type="submit" class="text-white bg-purple-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+        </form>      
+        {% endif %}
+    </div>
 </div>
 {% endblock %}
