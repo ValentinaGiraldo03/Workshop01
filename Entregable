@@ -1,12 +1,17 @@
-1. Logo equipo
+# 1. Logo equipo
+
 
 
 
 
 
 2. Modelo verbal definitivo
-<Explique en qué consiste el proyecto que pretende realizar, defina el alcance del
-proyecto, los actores involucrados y el beneficio de la propuesta que se presentará.>
+
+Technest's project consists of the expansion of the online technology store in the Colombian market, with a focus on the commercialization of technological products at affordable prices. This project's main objective is to consolidate Technest as the reference store for affordable electronic devices and accessories, offering high quality products, guarantees and excellent customer service.
+
+To achieve this objective, the proposal ranges from expanding the product offering, optimizing the online sales platform, to implementing digital marketing strategies aimed at attracting customers throughout the Colombian territory.
+
+
 3. Diagrama de clases
 <Desarrolle el diagrama de clases del proyecto – este diagrama de clases se
 enfocará en el dominio de la aplicación (elementos del negocio). Enfóquese en los
