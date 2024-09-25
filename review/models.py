@@ -10,3 +10,10 @@ class Review(models.Model):
         validators=[MinValueValidator(1), MaxValueValidator(5)]
     )
     comment = models.CharField(max_length=250)
+    date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['date']
+
+    def __str__(self):
+        return self.productReviewed.name + ' review by ' + self.reviewingClient.user.first_name
