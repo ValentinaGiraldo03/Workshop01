@@ -2,9 +2,13 @@
 # TECHNEST
 
 ## Application Description
-A brief description of the Django application we are working on. Mention the main purpose, key functionalities, and the target audience. For example:
 
-*"TechNest is a web application that facilitates the management of users, products, orders, reviews, and shopping carts. It is designed to simplify the buying and selling process online, both for users and administrators."*
+*"Technest's project consists of the expansion of the online technology store in the Colombian market, 
+with a focus on the commercialization of technological products at affordable prices. This project's 
+main objective is to consolidate Technest as the reference store for affordable electronic devices and accessories, 
+offering high quality products, guarantees and excellent customer service.To achieve this objective, 
+the proposal ranges from expanding the product offering, optimizing the online sales platform, to 
+implementing digital marketing strategies aimed at attracting customers throughout the Colombian territory.."*
 
 ## Key Features
 - **User Management**: Registration and administration of users and administrators.
