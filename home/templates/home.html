@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .custom-btn-add-product {
+        background-color: #ff5f5f; 
+        border: none;
+        font-size: 1.2rem; 
+        font-weight: bold;
+        padding: 10px 25px; 
+        border-radius: 50px; 
+        color: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+        transition: all 0.3s ease; 
+    }
+
+    .custom-btn-add-product:hover {
+        background-color: #ff3c3c; 
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); 
+        transform: translateY(-2px); 
+    }
+</style>
+
+<div class="container mt-4">
+    <div class="row">
+        {% for product in products %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <a href="{% url 'productDetail' product.id %}">
+                        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="{% url 'productDetail' product.id %}">{{ product.name }}</a>
+                        </h5>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">${{ product.price|floatformat:"0g" }}</small>
+                        <a href="{% url 'shoppingCart:add_to_cart' product.id %}" class="btn btn-primary float-end">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>No hay productos disponibles.</p>
+        {% endfor %}
+    </div>
+    <div class="d-flex justify-content-center mb-5">
+        {% if user.is_staff %}
+            <a class="btn btn-danger custom-btn-add-product " href="{% url 'add_product' %}">Add Product</a>
+        {% endif %}
+    </div>    
+</div>
+
+{% endblock %}
